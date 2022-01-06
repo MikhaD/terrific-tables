@@ -1,0 +1,10 @@
+{
+	"id": "terrific-tables",
+	"name": "Terrific Tables",
+	"version": "0.0.1",
+	"minAppVersion": "0.13.14",
+	"description": "Replace markdown table syntax with actual tables, similar to Typora. Controls and keyboard shortcuts similar to tables in Microsoft Word.",
+	"author": "MikhaD",
+	"authorUrl": "https://github.com/MikhaD",
+	"isDesktopOnly": false
+}

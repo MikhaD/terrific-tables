@@ -1,0 +1,31 @@
+.TTables-insert {
+	margin: auto;
+}
+
+.TTables-insert-row {
+	display: flex;
+}
+
+.TTables-insert-cell {
+	width: 2rem;
+	aspect-ratio: 1;
+	padding: 4px;
+	cursor: pointer;
+}
+
+.TTables-insert-cell::before {
+	display: block;
+	content: "";
+	width: 100%;
+	height: 100%;
+	background: var(--background-primary);
+}
+
+.TTables-insert-cell.hover::before {
+	outline: solid 2px var(--interactive-accent-hover);
+}
+
+.modal.mod-settings button.TTables-align-button[disabled] {
+	background-color: var(--interactive-accent);
+	cursor: unset;
+}
