@@ -1,19 +1,19 @@
-.TTables-insert {
+.TIns-insert {
 	margin: auto;
 }
 
-.TTables-insert-row {
+.TIns-insert-row {
 	display: flex;
 }
 
-.TTables-insert-cell {
+.TIns-insert-cell {
 	width: 2rem;
 	aspect-ratio: 1;
 	padding: 4px;
 	cursor: pointer;
 }
 
-.TTables-insert-cell::before {
+.TIns-insert-cell::before {
 	display: block;
 	content: "";
 	width: 100%;
@@ -21,11 +21,11 @@
 	background: var(--background-primary);
 }
 
-.TTables-insert-cell.hover::before {
+.TIns-insert-cell.hover::before {
 	outline: solid 2px var(--interactive-accent-hover);
 }
 
-.modal.mod-settings button.TTables-align-button[disabled] {
+.modal.mod-settings button.TIns-align-button[disabled] {
 	background-color: var(--interactive-accent);
 	cursor: unset;
 }

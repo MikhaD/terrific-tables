@@ -9,8 +9,9 @@ export default class InsertTableModal extends Modal {
 	constructor(app: App, settings: PluginSettings) {
 		super(app);
 		this.settings = settings;
-		this.contentEl.addClass("TTables-insert");
+		this.contentEl.addClass("TIns-insert");
 		this.titleEl.setText("Insert Table");
+		this.titleEl.addClass("TIns-insert-title");
 		this.generateInsertTable(this.settings.insertGridSize);
 	}
 
@@ -20,12 +21,12 @@ export default class InsertTableModal extends Modal {
 		for (let i = 0; i < size; ++i) {
 			this.insertTable.push([]);
 			const row = createDiv();
-			row.addClass("TTables-insert-row");
+			row.addClass("TIns-insert-row");
 			this.contentEl.appendChild(row);
 			for (let j = 0; j < size; ++j) {
 				const cell = createDiv();
 				this.insertTable[i].push(cell);
-				cell.addClass("TTables-insert-cell");
+				cell.addClass("TIns-insert-cell");
 				cell.setAttribute("row", `${i + 1}`);
 				cell.setAttribute("column", `${j + 1}`);
 				cell.addEventListener("mouseenter", e => this.onMouseEnter(e));
@@ -59,8 +60,8 @@ export default class InsertTableModal extends Modal {
 		const rows = parseInt(element.getAttribute("row"));
 		const columns = parseInt(element.getAttribute("column"));
 		const row = "|     ".repeat(columns) + "|";
-		const seperator = `|${this.settings.alignment === Align.left ? ":" : " "}---${this.settings.alignment === Align.right ? ":" : " "}`.repeat(columns) + "|";
-		const table = [row, seperator];
+		const separator = `|${this.settings.alignment === Align.left ? ":" : " "}---${this.settings.alignment === Align.right ? ":" : " "}`.repeat(columns) + "|";
+		const table = [row, separator];
 		for (let i = 1; i < rows; ++i) {
 			table.push(row);
 		}

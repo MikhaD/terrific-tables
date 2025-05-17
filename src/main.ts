@@ -1,9 +1,9 @@
 import addIcons from "icons";
 import InsertTableModal from "InsertTableModal";
-import { Editor, MarkdownPostProcessor, MarkdownRenderer, MarkdownView, Plugin } from "obsidian";
+import { Editor, MarkdownView, Plugin } from "obsidian";
 import { DEFAULT_SETTINGS, PluginSettings, SettingsTab } from "settings";
 
-export default class TerrificTables extends Plugin {
+export default class TableInserter extends Plugin {
 	settings: PluginSettings;
 	insertTableModal: InsertTableModal;
 
@@ -24,12 +24,12 @@ export default class TerrificTables extends Plugin {
 			}
 		});
 
-		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new SettingsTab(this));
 	}
 
 	onunload() {
 		this.insertTableModal = null;
+		this.settings = null;
 	}
 
 	async loadSettings() {

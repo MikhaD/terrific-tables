@@ -1,4 +1,4 @@
-import TerrificTables from "main";
+import TableInserter from "main";
 import { PluginSettingTab, Setting } from "obsidian";
 
 export const enum Align {
@@ -17,9 +17,9 @@ export const DEFAULT_SETTINGS: PluginSettings = {
 };
 
 export class SettingsTab extends PluginSettingTab {
-	plugin: TerrificTables;
+	plugin: TableInserter;
 
-	constructor(plugin: TerrificTables) {
+	constructor(plugin: TableInserter) {
 		super(plugin.app, plugin);
 		this.plugin = plugin;
 	}
@@ -29,7 +29,7 @@ export class SettingsTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		containerEl.createEl("h2", { text: "Terrific Tables Settings" });
+		containerEl.createEl("h2", { text: "Table Inserter Settings" });
 
 		new Setting(containerEl)
 			.setName("Insert Table Grid Size")
@@ -49,7 +49,7 @@ export class SettingsTab extends PluginSettingTab {
 			.addButton(button => button
 				.setIcon("align-left")
 				.setTooltip("Align Left")
-				.setClass("TTables-align-button")
+				.setClass("TIns-align-button")
 				.setDisabled(this.plugin.settings.alignment === Align.left)
 				.onClick(async e => {
 					alignment.components.forEach(b => b.setDisabled(false));
@@ -61,7 +61,7 @@ export class SettingsTab extends PluginSettingTab {
 			.addButton(button => button
 				.setIcon("align-center")
 				.setTooltip("Center")
-				.setClass("TTables-align-button")
+				.setClass("TIns-align-button")
 				.setDisabled(this.plugin.settings.alignment === Align.center)
 				.onClick(async e => {
 					alignment.components.forEach(c => c.setDisabled(false));
@@ -73,7 +73,7 @@ export class SettingsTab extends PluginSettingTab {
 			.addButton(button => button
 				.setIcon("align-right")
 				.setTooltip("Align Right")
-				.setClass("TTables-align-button")
+				.setClass("TIns-align-button")
 				.setDisabled(this.plugin.settings.alignment === Align.right)
 				.onClick(async e => {
 					alignment.components.forEach(c => c.setDisabled(false));
