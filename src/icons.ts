@@ -1,6 +1,7 @@
 import { addIcon } from "obsidian";
+import { Align } from "settings";
 
-const icons: { [name: string]: string; } = {
+export const ICONS = {
 	"align-left": `
 	<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 		<rect width="100" height="7" fill="currentColor"/>
@@ -25,10 +26,10 @@ const icons: { [name: string]: string; } = {
 		<rect y="93" x="30" width="70" height="7" fill="currentColor"/>
 	</svg>
 	`,
-};
+} as Record<Align, string>;
 
 export default function addIcons() {
-	for (const icon in icons) {
-		addIcon(icon, icons[icon]);
+	for (const icon in ICONS) {
+		addIcon(icon, ICONS[icon as Align]);
 	}
 }
