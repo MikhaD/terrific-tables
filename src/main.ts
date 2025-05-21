@@ -31,6 +31,7 @@ export default class TableInserter extends Plugin {
 			this.app.workspace.on(
 				"editor-menu",
 				(menu: Menu, editor: Editor, view: MarkdownView) => {
+					if (!this.settings.overwriteInsertTable) return;
 					// Identify and replace the Insert > Table menu item
 					menu = menu.items.filter(
 						(i) => i.section === "selection"

@@ -11,6 +11,7 @@ export interface PluginSettings {
 	alignment: Align;
 	allowCustomSizes: boolean;
 	showAlignmentOnModal: boolean;
+	overwriteInsertTable: boolean;
 }
 
 export const DEFAULT_SETTINGS: PluginSettings = {
@@ -18,6 +19,7 @@ export const DEFAULT_SETTINGS: PluginSettings = {
 	alignment: Align.center,
 	allowCustomSizes: false,
 	showAlignmentOnModal: true,
+	overwriteInsertTable: true,
 };
 
 export class SettingsTab extends PluginSettingTab {
@@ -56,6 +58,17 @@ export class SettingsTab extends PluginSettingTab {
 					.setValue(this.plugin.settings.showAlignmentOnModal)
 					.onChange(async (value) => {
 						this.plugin.settings.showAlignmentOnModal = value;
+						await this.plugin.saveSettings();
+					})
+			);
+		new Setting(containerEl)
+			.setName("Overwrite Insert Table Right Click Option")
+			.setDesc("Replace the default insert table option in the right click menu (Insert > Table).")
+			.addToggle((cb) =>
+				cb
+					.setValue(this.plugin.settings.overwriteInsertTable)
+					.onChange(async (value) => {
+						this.plugin.settings.overwriteInsertTable = value;
 						await this.plugin.saveSettings();
 					})
 			);
