@@ -16,7 +16,7 @@ export interface PluginSettings {
 
 export const DEFAULT_SETTINGS: PluginSettings = {
 	insertGridSize: 10,
-	alignment: Align.center,
+	alignment: Align.left,
 	allowCustomSizes: false,
 	showAlignmentOnModal: true,
 	overwriteInsertTable: true,
